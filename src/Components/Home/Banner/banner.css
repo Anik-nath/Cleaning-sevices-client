@@ -1,0 +1,13 @@
+.banner img{
+    border: 10px solid #000;
+    border-radius: 50% 0px 50% 50%;
+    border-color: rgb(210, 243, 253);
+    margin-left: -1px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+.banner .img-container{
+    border: 10px solid rgb(211, 203, 251);
+    border-radius: 50% 0px 50% 50%;
+    background-color: rgb(199, 235, 230);
+}

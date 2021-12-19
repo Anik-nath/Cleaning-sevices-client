@@ -1,0 +1,110 @@
+.mainbg{
+    background: rgba(1, 1, 70, 0.931);
+}
+.mainText{
+    color: rgba(1, 1, 70, 0.931);
+}
+.myButton {
+    border-radius: 0px 50px 50px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.myButton2 {
+    border-radius: 0px 50px 50px;
+    display: flex;
+    align-items: center;
+    background: gold;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0px 4px 8px #999;
+}
+.myButton:hover,
+.myButton2:hover,
+.myButton:hover i,
+.myButton2:hover i,
+.formBtn
+{
+    border-radius: 50px 50px 50px 0px;
+}
+  .myButton i,
+  .myButton2 i{
+      border-radius: 0px 50% 50%;
+      transition: all 0.3s ease;
+  }
+
+.brandTitle{
+    font-size: 14px;
+    color: #333;
+}
+.heading{
+    color: rgba(1, 1, 70, 0.931);
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 42px ;
+    margin: 15px 0px;
+}
+.fancyCard{
+    background: #fff;
+    padding: 35px;
+    transition: all 0.5s;
+    color: rgba(1, 1, 70, 0.931);
+    box-shadow: 0px 2px 4px 0px #999;
+}
+.fancyCardBody{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    border-radius: 0px 50% 50%;
+    transform: rotate(45deg);
+    overflow: hidden;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+.fancyCard:hover{
+    background-color:rgba(1, 1, 70, 0.931);
+    color: gold;
+}
+.fancyCard img{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg) scale(1.4);
+}
+.fancyDot{
+    width: 20px;
+    height: 20px;
+    background: rgb(253, 220, 32);
+    border-radius: 0px 50% 50%;
+    transform: rotate(150deg);
+}
+.fancyDot2{
+    width: 20px;
+    height: 20px;
+    background: rgba(5, 5, 143, 0.931);
+    border-radius: 0px 50% 50%;
+    transform: rotate(-30deg);
+    margin-left: 8px;
+}
+.form{
+    background: rgba(1, 1, 70, 0.931);
+    padding: 35px;
+    height: 100%;
+}
+.formBtn{
+    border-radius: 0px 50px 50px;
+    background: gold;
+    transition: all 0.3s ease;
+    border: none;
+    color: rgba(1, 1, 70, 0.931);
+    font-weight: 500;
+    font-size: large;
+}
+.pageBackground{
+    background-image: linear-gradient(to right,rgba(45, 45, 119, 0.637) 0%,rgba(1, 1, 70, 0.561) 100%),url('../../images/page-title.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    color: rgb(49, 49, 224);
+}
