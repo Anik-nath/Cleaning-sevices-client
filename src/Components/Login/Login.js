@@ -56,7 +56,7 @@ const Login = () => {
             <Button className="w-100 rounded-pill" variant="primary" type="submit">
               Sign in
             </Button>
-            <div className="text-center my-3">
+            <div className="text-center my-5">
             <span className="">You have no account?</span>
               <Link to="/registration" className="ms-3" variant="primary" type="submit">
                 Create an account now
@@ -64,7 +64,7 @@ const Login = () => {
             </div>
            <hr />
             <Form.Group className="mb-3 d-flex justify-content-center" controlId="formBasicCheckbox">
-             <Button onClick={handleGoogle} className="btn btn-primary rounded-pill"> Sign in With Google</Button>
+             <Button onClick={handleGoogle} className="btn  btn-light shadow rounded-pill"> Sign in With Google</Button>
             </Form.Group> 
           </Form>
         </div>

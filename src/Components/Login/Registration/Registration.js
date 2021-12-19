@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import styles from "../../Navigation/myButton.module.css";
 
 const Registration = () => {
     const {createUser} = useAuth();
@@ -18,10 +20,12 @@ const Registration = () => {
         createUser(data.email,data.password);
     }
     return (
+     <div className={styles.loginCover}>
         <div className="container py-5">
         <div className="row pb-5">
           <div className="col-lg-6 mx-auto">
-            <Form onSubmit={handleSubmit} className="bg-primary p-3 mt-5">
+            <Form onSubmit={handleSubmit} className="bg-white p-3 mt-5">
+            <h3 className="text-center mb-4">Create your acconut</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label className="h5">Username </Form.Label>
               <Form.Control required onBlur={handleInput} name="displayName" type="text" placeholder="Enter fullname" />
@@ -39,13 +43,20 @@ const Registration = () => {
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group>
               
-              <Button variant="warning" type="submit">
-              Registration
+              <Button className="rounded-pill w-100" variant="primary" type="submit">
+              Sign up
               </Button>
+              <div className="text-center my-5">
+            <span className="">You have no account?</span>
+              <Link to="/login" className="ms-3" variant="primary" type="submit">
+                Sign in Please
+              </Link>
+            </div>
             </Form>
           </div>
         </div>
       </div>
+     </div>
     );
 };
 
