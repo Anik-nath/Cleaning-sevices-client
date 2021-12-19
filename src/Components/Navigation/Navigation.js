@@ -15,8 +15,8 @@ const Navigation = () => {
   return (
     <div>
      <div className={styles.mainbg}>
-      <div className="d-flex justify-content-between container align-items-center py-3 text-white">
-          <div>
+      <div className="d-flex flex-lg-row flex-column justify-content-between container align-items-center py-3 text-white">
+          <div className="">
             <span className="me-4"><i className="fas fa-map-marker-alt"></i> New Area, Bangladesh, Road, 1000</span>
             <span><i className="far fa-envelope"></i> cleener@gmail.com</span>
           </div>
@@ -43,8 +43,8 @@ const Navigation = () => {
               <Nav.Link as={HashLink} to="/about">About</Nav.Link>
               <Nav.Link as={HashLink} to="/services">Services</Nav.Link>
               <Nav.Link as={HashLink} to="/login">Login</Nav.Link>
-              <Nav.Link as={HashLink} to="/dashboard">Dashboard</Nav.Link>
               <Nav.Link as={HashLink} to="/contact">Contact</Nav.Link>
+              <Nav.Link as={HashLink} to="/blog">Blog</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="#">

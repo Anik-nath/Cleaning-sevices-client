@@ -108,3 +108,8 @@
     background-blend-mode: multiply;
     color: rgb(49, 49, 224);
 }
+.loginCover{
+    background-image: linear-gradient(to right,rgba(28, 28, 80, 0.637) 0%,rgba(1, 1, 70, 0.561) 100%),url('../../images/loginCover.jpg');
+    background-size: cover;
+    background-position: center;
+}
