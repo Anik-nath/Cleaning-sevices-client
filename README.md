@@ -2,6 +2,7 @@
 
 This is a MERN stack project with [Create React App](https://github.com/facebook/create-react-app).
 
+![CleanerServices](https://user-images.githubusercontent.com/67818482/146685990-7484f2fd-7a91-4e67-838c-1e7d455fea9c.PNG)
 
 ### `Features`
 
