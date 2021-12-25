@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import styles from "../Navigation/myButton.module.css";
 
@@ -8,8 +9,11 @@ const Login = () => {
   const [data,setData] = useState({});
   const {googleSignIn,login,error} = useAuth();
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleGoogle = () =>{
-    googleSignIn();
+    googleSignIn(location,navigate);
   }
 
   const handleInput = (e) =>{

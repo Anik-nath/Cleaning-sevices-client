@@ -12,10 +12,11 @@ import Login from "./Components/Login/Login";
 import Footer from "./Components/Footer/Footer";
 import AuthProvider from "./Components/Context/AuthProvider";
 import Registration from "./Components/Login/Registration/Registration";
-import DashboardHome from "./Components/Dashboard/DashboardHome";
 import Contact from "./Components/Contact/Contact";
 import Services from "./Components/Services/Services";
 import Blog from "./Components/Blog/Blog";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Details from "./Components/Details/Details";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
-          <Route path="/services" element={<Services></Services>}></Route>
+          <Route path="/services" element={<PrivateRoute><Services></Services></PrivateRoute>}></Route>
+          <Route path="/services/:id" element={<Details></Details>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/blog" element={<Blog></Blog>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>

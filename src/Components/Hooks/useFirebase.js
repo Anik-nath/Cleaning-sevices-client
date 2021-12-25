@@ -1,12 +1,15 @@
 import { useState } from "react";
 import initializeFirebase from "../Login/Firebase/Firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,signInWithEmailAndPassword,createUserWithEmailAndPassword, getIdToken } from "firebase/auth";
+import { useEffect } from "react";
 
 initializeFirebase();
 
 const useFirebase = () =>{
     const [user,setUser] = useState('');
     const [error,setError] = useState('');
+    const [isloading,setIsLoading] = useState(true);
+    const [token,setToken] = useState('');
 
     const [show, setShow] = useState(true);
     const handleClose = () => setShow(false);
@@ -15,28 +18,42 @@ const useFirebase = () =>{
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
 
-    const googleSignIn= ()=>{
+    const googleSignIn= (location,navigate)=>{
+        setIsLoading(true);
         signInWithPopup(auth, provider)
         .then(() => {
          alert("sign up successfully");
          setError('');
+         const destination = location?.state?.from || '/';
+         navigate(destination);
         }).catch((error) => {
          setError(error.message)
-        });
+        })
+        .finally(()=> setIsLoading(false))
     }
 
     //observe user
-    const Subscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setUser(user);
-        } else {
-            setUser('');
-        }
-        return () => Subscribe;
-      });
+    useEffect(()=>{
+        const Subscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+                //use id token
+                getIdToken(user)
+                .then(function(idToken) {
+                //    console.log(idToken);
+                   setToken(idToken);
+                  })
+            } else {
+                setUser('');
+            }
+            setIsLoading(false);
+            return () => Subscribe;
+          });
+    },[auth])
 
     //create new user
     const createUser=(email,password)=>{
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
             alert('successfully create user')
@@ -44,10 +61,12 @@ const useFirebase = () =>{
         })
         .catch((error) => {
             setError(error.message)
-        });
+        })
+        .finally(()=> setIsLoading(false))
     }
     //login with email and password
     const login =(email,password)=>{
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 alert("login successfully");
@@ -55,18 +74,21 @@ const useFirebase = () =>{
             })
             .catch((error) => {
                 setError(error.message)
-            });
+            })
+            .finally(()=> setIsLoading(false))
     }
 
     //signout
     const signout =()=>{
+        setIsLoading(true);
         signOut(auth)
         .then(() => {
             alert("sign out successfully");
             setError('');
           }).catch((error) => {
             setError(error.message);
-          });
+          })
+          .finally(()=> setIsLoading(false))
     }
 
     return {
@@ -78,7 +100,9 @@ const useFirebase = () =>{
         error,
         handleShow,
         handleClose,
-        show
+        show,
+        isloading,
+        token
     }
 }
 export default useFirebase;

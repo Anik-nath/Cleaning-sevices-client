@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAQkqPdHDxBZMOGvhfyGmC3_11JypXJOX0",
-    authDomain: "bd-cleener.firebaseapp.com",
-    projectId: "bd-cleener",
-    storageBucket: "bd-cleener.appspot.com",
-    messagingSenderId: "678043497206",
-    appId: "1:678043497206:web:362448df7f94c2a2eab2d7"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
   };
 
 export default firebaseConfig;
