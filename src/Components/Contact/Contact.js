@@ -9,7 +9,7 @@ const Contact = () => {
         <div className="container py-5 mb-5">
           <div className="row py-5">
             <div className="col-12 text-center text-light py-5">
-              <h1 className="display-3">Contact</h1>
+              <h1 className="display-3">Contact Us</h1>
             </div>
           </div>
         </div>
