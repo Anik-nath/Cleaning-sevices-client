@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Container, Nav, Navbar,Dropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Container, Nav, Navbar,Dropdown, Modal } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import useAuth from "../Hooks/useAuth";
@@ -8,6 +8,11 @@ import userimg from '../../images/user.png';
 
 const Navigation = () => {
   const {user,signout} = useAuth();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const handleSignOut =()=>{
     signout();
@@ -48,7 +53,7 @@ const Navigation = () => {
             </Nav>
             <Nav>
               <Nav.Link href="#">
-               <Button className={styles.myButton}>
+               <Button onClick={handleShow} className={styles.myButton}>
                  <i className="fas fa-phone-alt border-1 border bg-light text-dark p-3 me-2 my-1"></i> 
                  <div>
                  <span>Get free Estimate</span> <br />
@@ -86,7 +91,20 @@ const Navigation = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Make a Call</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're contacting Our Manager!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="warning">
+            Later
+          </Button>
+          <Button variant="primary">
+            Call Now
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
