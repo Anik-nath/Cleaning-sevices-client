@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../Navigation/myButton.module.css";
 import { useParams } from "react-router-dom";
-import { Accordion, ListGroup } from "react-bootstrap";
+import { Accordion, Form, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import cleaning from "../../images/cleaning.jpg";
 
@@ -122,7 +122,47 @@ const Details = () => {
                 </ListGroup>
               </div>
             </div>
-            <div className="bg-primary text-light mt-5 p-5">
+            <div className="bg-primary shadow text-light mt-5 p-5">
+              <h3 className="text-dark">Place Your Order</h3>
+              <Form>
+                <Form.Group className="" controlId="formBasicSevice">
+                  <Form.Label>Cleaning service</Form.Label>
+                  <Form.Control type="text" value={details.name} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Label>Your Name</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Full Name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPhone">
+                  <Form.Label>Your Phone</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Phone" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicAddress">
+                  <Form.Label>Your address</Form.Label>
+                  <Form.Control type="text" placeholder="Enter address" />
+                </Form.Group>
+
+                <button type="submit" className={styles.myButton2}>
+                  <i className="fas fa-phone bg-light text-dark p-3 me-2 my-1"></i>
+                  <div>
+                    <span className="fw-bold px-2">Order Now</span> <br />
+                  </div>
+                </button>
+              </Form>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Details;
+
+
+/* 
+<div className="bg-primary text-light mt-5 p-5">
               <h3>Get a Free Quote</h3>
               <p className="py-4">
                 We are a cleaning company that has been in the business for
@@ -137,11 +177,4 @@ const Details = () => {
                 </button>
               </Link>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Details;
+*/
