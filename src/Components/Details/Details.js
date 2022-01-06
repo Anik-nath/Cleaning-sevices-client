@@ -29,10 +29,10 @@ const [data,setData] = useState({});
  const handleFiled = (e) =>{
   const field = e.target.name;
   const value = e.target.value;
-  console.log(value);
+  // console.log(value);
   const newField = {...data};
   newField[field] = value;
-  console.log(newField);
+  // console.log(newField);
   setData(newField);
  }
  const handleSubmit = (e) =>{

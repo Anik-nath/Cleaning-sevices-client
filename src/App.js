@@ -17,6 +17,7 @@ import Services from "./Components/Services/Services";
 import Blog from "./Components/Blog/Blog";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Details from "./Components/Details/Details";
+import ScrollToTop from "react-scroll-to-top";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <AuthProvider>
       <BrowserRouter>
       <Navigation></Navigation>
+      <ScrollToTop smooth color="#6f00ff" />
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
