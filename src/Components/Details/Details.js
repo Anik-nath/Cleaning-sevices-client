@@ -161,7 +161,7 @@ const [data,setData] = useState({});
               </div>
             </div>
             <div className="bg-primary shadow text-light mt-5 p-5">
-              <h3 className="text-dark">Place Your Order</h3>
+              <h3 className="mb-3">Place Your Order</h3>
               <Form>
                 <Form.Group className="" controlId="formBasicSevice">
                   <Form.Label>Cleaning service</Form.Label>
