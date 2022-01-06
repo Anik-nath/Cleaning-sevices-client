@@ -8,7 +8,7 @@ import cleaning from "../../images/cleaning.jpg";
 const Details = () => {
   const { id } = useParams();
   const [details, setDetails] = useState([]);
-
+const [data,setData] = useState({});
   useEffect(() => {
     const url = `https://desolate-brook-42851.herokuapp.com/services/${id}`;
     fetch(url)
@@ -24,6 +24,44 @@ const Details = () => {
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
+
+  //order functionality
+ const handleFiled = (e) =>{
+  const field = e.target.name;
+  const value = e.target.value;
+  console.log(value);
+  const newField = {...data};
+  newField[field] = value;
+  console.log(newField);
+  setData(newField);
+ }
+ const handleSubmit = (e) =>{
+   const order = {
+      ...data,
+      service: data?.service,
+      username: data?.username,
+      useraddress: data?.useraddress,
+      userphone: data?.userphone,
+      date: new Date().toLocaleDateString(),
+    };
+    console.log(order);
+
+    //now fetch and post data
+    fetch("https://desolate-brook-42851.herokuapp.com/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("accept your order");
+        }
+      });
+    e.preventDefault();
+ }
 
   return (
     <div className="">
@@ -127,22 +165,22 @@ const Details = () => {
               <Form>
                 <Form.Group className="" controlId="formBasicSevice">
                   <Form.Label>Cleaning service</Form.Label>
-                  <Form.Control type="text" value={details.name} />
+                  <Form.Control name="service" onBlur={handleFiled} type="text" value={details.name} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label>Your Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Full Name" />
+                  <Form.Control name="username" onBlur={handleFiled} required type="text" placeholder="Enter Full Name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPhone">
                   <Form.Label>Your Phone</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Phone" />
+                  <Form.Control name="userphone" onBlur={handleFiled} required type="text" placeholder="Enter Phone" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicAddress">
                   <Form.Label>Your address</Form.Label>
-                  <Form.Control type="text" placeholder="Enter address" />
+                  <Form.Control name="useraddress" onBlur={handleFiled} required type="text" placeholder="Enter address" />
                 </Form.Group>
 
-                <button type="submit" className={styles.myButton2}>
+                <button onClick={handleSubmit} type="button" className={styles.myButton2}>
                   <i className="fas fa-phone bg-light text-dark p-3 me-2 my-1"></i>
                   <div>
                     <span className="fw-bold px-2">Order Now</span> <br />
